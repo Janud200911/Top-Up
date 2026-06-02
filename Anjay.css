@@ -1,0 +1,219 @@
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, .logo {
+    font-family: 'Orbitron', sans-serif; /* Font Futuristic */
+}
+
+/* Variable Warna Neon */
+:root {
+    --primary: #00f3ff; /* Cyan Neon */
+    --secondary: #bc13fe; /* Purple Neon */
+    --bg-dark: #0b0c10;
+    --bg-panel: #1f2833;
+    --text-gray: #c5c6c7;
+}
+
+/* Navigasi */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.8);
+    border-bottom: 1px solid var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.highlight {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+.nav-link {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 8px 20px;
+    cursor: pointer;
+    font-family: 'Orbitron';
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 15px var(--primary);
+}
+
+/* Halaman (View) Management */
+.page {
+    display: none; /*，默认隐藏 */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 40px 20px;
+    min-height: 80vh;
+}
+
+.page.active {
+    display: block; /*显示 */
+    opacity: 1;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Home Page Styles */
+.hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--bg-panel);
+    border: 1px solid #333;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.1);
+    border-color: var(--primary);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* Checkout Styles */
+.checkout-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    padding: 40px;
+    border: 1px solid var(--secondary);
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary);
+    font-family: 'Orbitron';
+    font-size: 0.9rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    border: 1px solid #444;
+    color: #fff;
+    font-family: 'Roboto';
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    font-family: 'Orbitron';
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-confirm {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.btn-confirm:hover {
+    background: #fff;
+    box-shadow: 0 0 20px #fff;
+}
+
+.btn-cancel {
+    background: transparent;
+    border: 1px solid #444;
+    color: #888;
+}
+
+.btn-cancel:hover {
+    border-color: #fff;
+    color: #fff;
+}

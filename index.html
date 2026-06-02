@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoStore | Top Up</title>
+    <link rel="stylesheet" href="Anjay.css">
+    <!-- Menggunakan Font Google yang Robotik -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="overlay"></div>
+    
+    <nav>
+        <div class="logo">NEO<span class="highlight">STORE</span></div>
+        <button id="btn-home-nav" class="nav-link" onclick="showHome()">BERANDA</button>
+    </nav>
+
+    <main id="app">
+        <!-- Halaman 1: Daftar Produk -->
+        <section id="home-page" class="page active">
+            <div class="hero">
+                <h1>TOP UP <span class="highlight">TERCEPAT</span></h1>
+                <p>Isi saldo游戏 (GAME) favoritmu dengan harga termurah.</p>
+            </div>
+            
+            <div class="product-grid" id="product-list">
+                <!-- Produk akan di-generate oleh JS di sini -->
+            </div>
+        </section>
+
+        <!-- Halaman 2: Halaman Pembelian (Checkout) -->
+        <section id="checkout-page" class="page">
+            <div class="checkout-container">
+                <div class="checkout-header">
+                    <h2>KONFIRMASI PEMBAYARAN</h2>
+                    <div class="product-summary" id="selected-product-display">
+                        <!-- Detail produk dipilih akan muncul di sini -->
+                    </div>
+                </div>
+
+                <form id="purchase-form" onsubmit="processPayment(event)">
+                    <div class="form-group">
+                        <label>ID PENGGUNA (UID)</label>
+                        <input type="text" placeholder="Contoh: 12345678" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>METODE PEMBAYARAN</label>
+                        <select required>
+                            <option value="">Pilih metode...</option>
+                            <option value="qris">QRIS / E-Wallet</option>
+                            <option value="pulsa">Pulsa (Telkomsel/Xl)</option>
+                            <option value="bank">Transfer Bank</option>
+                        </select>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="button" class="btn-cancel" onclick="showHome()">BATAL</button>
+                        <button type="submit" class="btn-confirm">BAYAR SEKARANG</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="Anjay.js"></script>
+</body>
+</html>
